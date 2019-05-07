@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head>
+    <h:outputStylesheet name="css/styles.css"/>
+    <title>Create university</title>
+</h:head>
+
+<h:body>
+
+    <h2>Create new university</h2>
+    <h:form>
+        <p:fieldset legend="All universities" toggleable="true" style="width: 50%">
+            <p:dataTable value="#{universityController.universities}" var="university">
+                <p:column headerText="University">
+                    <h:outputText value="#{university.title}"/>
+                </p:column>
+                <p:column headerText="View">
+                    <h:link value="View" outcome="students-for-university?universityId=#{university.id}"/>
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>
+
+        <table>
+            <tr>
+                <td>
+                    <h:panelGrid columns="3">
+                        <p:outputLabel for="title" value="Title"/>
+                        <p:inputText id="title" value="#{universityController.university.title}"/>
+                        <p:message for="title"/>
+                    </h:panelGrid>
+                </td>
+            </tr>
+        </table>
+
+        <p:commandButton value="Create university"
+                         actionListener="#{universityController.createUniversity()}"
+                         action="university?faces-redirect=true"
+                         ajax="false"/>
+
+        <p:messages globalOnly="true"/>
+
+    </h:form>
+</h:body>
+</html>
+

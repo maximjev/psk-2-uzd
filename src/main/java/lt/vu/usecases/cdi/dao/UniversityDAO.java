@@ -19,4 +19,8 @@ public class UniversityDAO {
     public List<University> getAllUniversities() {
         return em.createNamedQuery("University.findAll", University.class).getResultList();
     }
+
+    public University findById(Integer id) {
+        return em.find(University.class, id);
+    }
 }

@@ -36,5 +36,4 @@ public class FirstComp {
         return toString() + " | " + new Date() + " | " + " Tx: " + tx.getTransactionKey() +
                 " | Second component: " + secondComp.sayHello();
     }
-
 }

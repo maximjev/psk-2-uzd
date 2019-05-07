@@ -20,11 +20,12 @@ import java.util.List;
 @Entity
 @Table(name = "STUDENT")
 @NamedQueries({
-    @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s"),
-    @NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = :id"),
-    @NamedQuery(name = "Student.findByFirstName", query = "SELECT s FROM Student s WHERE s.firstName LIKE :firstName"),
-    @NamedQuery(name = "Student.findByLastName", query = "SELECT s FROM Student s WHERE s.lastName LIKE :lastName"),
-    @NamedQuery(name = "Student.findByRegistrationNo", query = "SELECT s FROM Student s WHERE s.registrationNo = :registrationNo")
+        @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s"),
+        @NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = :id"),
+        @NamedQuery(name = "Student.findByFirstName", query = "SELECT s FROM Student s WHERE s.firstName LIKE :firstName"),
+        @NamedQuery(name = "Student.findByLastName", query = "SELECT s FROM Student s WHERE s.lastName LIKE :lastName"),
+        @NamedQuery(name = "Student.findByRegistrationNo", query = "SELECT s FROM Student s WHERE s.registrationNo = :registrationNo"),
+        @NamedQuery(name = "Student.findByUniversity", query = "SELECT s FROM Student s WHERE s.university = :university")
 })
 @Getter
 @Setter
@@ -55,8 +56,8 @@ public class Student implements Serializable {
     private Integer optLockVersion;
 
     @JoinTable(name = "STUDENT_COURSE", joinColumns = {
-        @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")}, inverseJoinColumns = {
-        @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID")})
+            @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")}, inverseJoinColumns = {
+            @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID")})
     @ManyToMany
     @JohnzonIgnore
     private List<Course> courseList = new ArrayList<>();
