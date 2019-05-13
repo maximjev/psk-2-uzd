@@ -8,5 +8,14 @@
 
     <alternatives>
         <class>org.apache.deltaspike.jpa.impl.transaction.ContainerManagedTransactionStrategy</class>
+        <class>lt.vu.usecases.cdi.dao.UniversityDAOTwo</class>
     </alternatives>
+
+    <interceptors>
+        <class>lt.vu.usecases.cdi.interceptors.PersistInterceptorImpl</class>
+    </interceptors>
+
+    <decorators>
+        <class>lt.vu.rest.StudentRestServiceDecorator</class>
+    </decorators>
 </beans>

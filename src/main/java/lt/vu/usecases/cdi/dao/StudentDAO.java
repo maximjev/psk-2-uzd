@@ -2,6 +2,7 @@ package lt.vu.usecases.cdi.dao;
 
 import lt.vu.entities.Student;
 import lt.vu.entities.University;
+import lt.vu.usecases.cdi.interceptors.PersistInterceptor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -13,6 +14,7 @@ public class StudentDAO {
     @Inject
     private EntityManager em;
 
+    @PersistInterceptor
     public void create(Student student) {
         em.persist(student);
     }

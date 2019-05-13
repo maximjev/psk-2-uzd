@@ -1,26 +1,20 @@
 package lt.vu.usecases.cdi.dao;
 
 import lt.vu.entities.University;
+import lt.vu.usecases.cdi.interceptors.PersistInterceptor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-@ApplicationScoped
-public class UniversityDAO {
-    @Inject
-    private EntityManager em;
 
-    public void create(University university) {
-        em.persist(university);
-    }
+public interface UniversityDAO {
 
-    public List<University> getAllUniversities() {
-        return em.createNamedQuery("University.findAll", University.class).getResultList();
-    }
+    void create(University university);
 
-    public University findById(Integer id) {
-        return em.find(University.class, id);
-    }
+
+    List<University> getAllUniversities();
+
+    University findById(Integer id);
 }

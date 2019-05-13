@@ -58,7 +58,7 @@ public class Student implements Serializable {
     @JoinTable(name = "STUDENT_COURSE", joinColumns = {
             @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")}, inverseJoinColumns = {
             @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID")})
-    @ManyToMany
+    @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
     @JohnzonIgnore
     private List<Course> courseList = new ArrayList<>();
 

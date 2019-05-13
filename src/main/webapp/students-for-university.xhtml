@@ -18,11 +18,11 @@
                 <p:column headerText="Student">
                     <h:outputText value="#{student.firstName} #{student.lastName} #{student.registrationNo}"/>
                 </p:column>
-                <!--<p:column headerText="Courses">-->
-                <!--<ui:repeat var="course" value="#{student.courseList}">-->
-                <!--<h:outputText value="#{course.name} " />-->
-                <!--</ui:repeat>-->
-                <!--</p:column>-->
+                <p:column headerText="Courses">
+                <ui:repeat var="course" value="#{student.courseList}">
+                <h:outputText value="#{course.name} " />
+                </ui:repeat>
+                </p:column>
             </p:dataTable>
         </p:fieldset>
 
